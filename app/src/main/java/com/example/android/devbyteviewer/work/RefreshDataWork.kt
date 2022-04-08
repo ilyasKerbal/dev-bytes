@@ -27,6 +27,10 @@ import java.lang.Exception
 
 class RefreshDataWorker(appContext: Context, workerParameters: WorkerParameters) : CoroutineWorker(appContext, workerParameters) {
 
+    companion object {
+        val WORKER_NAME = "androidBytes-refresh-videos"
+    }
+
     override suspend fun doWork(): Result {
         val database = getDatabase(applicationContext)
         val repository = VideosRepository(database)
